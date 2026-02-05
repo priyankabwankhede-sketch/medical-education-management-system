@@ -1,0 +1,129 @@
+<div class="p-4 max-w-7xl mx-auto">
+  <!-- Trainees Section -->
+  <h2 class="text-2xl font-bold mb-4 text-blue-700">Trainees Dashboard</h2>
+
+  <!-- CREATE TRAINEE FORM -->
+  <div class="flex flex-col md:flex-row gap-2 mb-6 items-center">
+    <input
+      type="text"
+      placeholder="Username"
+      [(ngModel)]="username"
+      class="border rounded px-3 py-2 w-full md:w-1/3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+
+    <select
+      [(ngModel)]="programId"
+      class="border rounded px-3 py-2 w-full md:w-1/4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    >
+      <option [value]="1">Internal Medicine</option>
+      <option [value]="2">Surgery</option>
+    </select>
+
+    <button
+      (click)="createTrainee()"
+      class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition"
+    >
+      Add Trainee
+    </button>
+  </div>
+
+  <!-- TRAINEES TABLE -->
+  <div class="overflow-x-auto mb-8">
+    <table class="min-w-full border border-gray-300 text-left text-sm">
+      <thead class="bg-blue-100 text-blue-700 uppercase">
+        <tr>
+          <th class="border px-4 py-2">Trainee ID</th>
+          <th class="border px-4 py-2">Username</th>
+          <th class="border px-4 py-2">Program Name</th>
+          <th class="border px-4 py-2 text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let trainee of trainees" class="hover:bg-blue-50">
+          <td class="border px-4 py-2">{{ trainee.traineeId }}</td>
+          <td class="border px-4 py-2">{{ trainee.username }}</td>
+          <td class="border px-4 py-2">{{ trainee.programName }}</td>
+          <td class="border px-4 py-2 text-center">
+            <button
+              (click)="deleteTrainee(trainee.traineeId)"
+              class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Rotations Section -->
+  <h2 class="text-2xl font-bold mb-4 text-purple-700">Rotations Dashboard</h2>
+
+  <!-- CREATE ROTATION FORM -->
+  <div class="flex flex-col md:flex-row gap-2 mb-6 items-center">
+    <select
+      [(ngModel)]="rotationTraineeId"
+      class="border rounded px-3 py-2 w-full md:w-1/4 focus:outline-none focus:ring-2 focus:ring-purple-500"
+    >
+      <option *ngFor="let t of trainees" [value]="t.traineeId">
+        {{ t.username }} ({{ t.programName }})
+      </option>
+    </select>
+
+    <input
+      type="date"
+      [(ngModel)]="startDate"
+      class="border rounded px-3 py-2 w-full md:w-1/4 focus:outline-none focus:ring-2 focus:ring-purple-500"
+    />
+
+    <input
+      type="date"
+      [(ngModel)]="endDate"
+      class="border rounded px-3 py-2 w-full md:w-1/4 focus:outline-none focus:ring-2 focus:ring-purple-500"
+    />
+
+    <button
+      (click)="createRotation()"
+      class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition"
+    >
+      Add Rotation
+    </button>
+  </div>
+
+  <!-- ROTATIONS TABLE -->
+  <div class="overflow-x-auto">
+    <table class="min-w-full border border-gray-300 text-left text-sm">
+      <thead class="bg-purple-100 text-purple-700 uppercase">
+        <tr>
+          <th class="border px-4 py-2">Rotation ID</th>
+          <th class="border px-4 py-2">Trainee ID</th>
+          <th class="border px-4 py-2">Username</th>
+          <th class="border px-4 py-2">Program Name</th>
+          <th class="border px-4 py-2">Start Date</th>
+          <th class="border px-4 py-2">End Date</th>
+          <th class="border px-4 py-2 text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rotation of rotations" class="hover:bg-purple-50">
+          <td class="border px-4 py-2">{{ rotation.rotationId }}</td>
+          <td class="border px-4 py-2">{{ rotation.traineeId }}</td>
+          <td class="border px-4 py-2">{{ rotation.username }}</td>
+          <td class="border px-4 py-2">
+            {{ traineeProgramMap[rotation.traineeId] || 'N/A' }}
+          </td>
+          <td class="border px-4 py-2">{{ rotation.startDate | date:'shortDate' }}</td>
+          <td class="border px-4 py-2">{{ rotation.endDate | date:'shortDate' }}</td>
+          <td class="border px-4 py-2 text-center">
+            <button
+              (click)="deleteRotation(rotation.rotationId)"
+              class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
