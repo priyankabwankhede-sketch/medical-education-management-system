@@ -106,7 +106,7 @@ This system is designed to help medical education departments track trainee assi
 
 
 
-### `src/style.css`
+### `src/styles.css`
 
 ```css
 
@@ -115,6 +115,7 @@ This system is designed to help medical education departments track trainee assi
 @tailwind components;
 
 @tailwind utilities;
+
 
 
 
