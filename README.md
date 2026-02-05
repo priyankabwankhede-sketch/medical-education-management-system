@@ -1,4 +1,4 @@
-\# Medical Education Management System
+# Medical Education Management System
 
 
 
@@ -14,39 +14,31 @@ This system is designed to help medical education departments track trainee assi
 
 
 
-\## Tech Stack
+## Tech Stack
 
 
 
-\### Backend
+### Backend
 
-\- ASP.NET Core Web API
+- ASP.NET Core Web API
 
-\- Entity Framework Core
+- Entity Framework Core
 
-\- SQL Server
+- SQL Server
 
-\- Swagger (OpenAPI)
-
-
-
-\### Frontend
-
-\- Angular
-
-\- Tailwind CSS
-
-\- PostCSS
-
-\- TypeScript
+- Swagger (OpenAPI)
 
 
 
----
+### Frontend
 
+- Angular
 
+- Tailwind CSS
 
-\## Project Structure
+- PostCSS
+
+- TypeScript
 
 
 
@@ -54,27 +46,7 @@ This system is designed to help medical education departments track trainee assi
 
 
 
-\## Core Features
-
-
-
-\### Trainees
-
-\- Create and manage trainee profiles
-
-\- Assign trainees to rotations
-
-\- View trainee rotation history
-
-
-
-\### Rotations
-
-\- Create clinical rotations
-
-\- Define start and end dates
-
-\- Link rotations to trainees
+## Project Structure
 
 
 
@@ -82,15 +54,43 @@ This system is designed to help medical education departments track trainee assi
 
 
 
-\## Trainee → Rotation Relationship
+## Core Features
 
 
 
-\- One trainee can have \*\*multiple rotations\*\*
+### Trainees
 
-\- One rotation can have \*\*multiple trainees\*\*
+- Create and manage trainee profiles
 
-\- Each rotation has:
+- Assign trainees to rotations
+
+- View trainee rotation history
+
+
+
+### Rotations
+
+- Create clinical rotations
+
+- Define start and end dates
+
+- Link rotations to trainees
+
+
+
+---
+
+
+
+## Trainee → Rotation Relationship
+
+
+
+- One trainee can have \*\*multiple rotations\*\*
+
+- One rotation can have \*\*multiple trainees\*\*
+
+- Each rotation has:
 
 &nbsp; - Department
 
@@ -102,11 +102,11 @@ This system is designed to help medical education departments track trainee assi
 
 
 
-\## Tailwind CSS Configuration
+## Tailwind CSS Configuration
 
 
 
-\### `src/style.css`
+### `src/style.css`
 
 ```css
 
@@ -115,6 +115,7 @@ This system is designed to help medical education departments track trainee assi
 @tailwind components;
 
 @tailwind utilities;
+
 
 
 
